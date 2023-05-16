@@ -1,4 +1,4 @@
-package com.example.adminusersite.requests;
+package com.example.adminusersite.servlets.crud;
 
 import com.example.adminusersite.dao.UserDao;
 import com.example.adminusersite.dao.UserDaoImpl;
@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-@WebServlet("/registration")
-public class Registration extends HttpServlet {
+@WebServlet("/register")
+public class CreateUserServlet extends HttpServlet {
     @Override
     @SneakyThrows
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {

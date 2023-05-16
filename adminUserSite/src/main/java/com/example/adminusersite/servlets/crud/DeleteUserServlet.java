@@ -1,4 +1,4 @@
-package com.example.adminusersite.requests;
+package com.example.adminusersite.servlets.crud;
 
 import com.example.adminusersite.dao.UserDao;
 import com.example.adminusersite.dao.UserDaoImpl;
@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/delete")
-public class Delete extends HttpServlet {
+public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         UserDao userDao = new UserDaoImpl();

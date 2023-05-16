@@ -1,4 +1,4 @@
-package com.example.adminusersite.requests;
+package com.example.adminusersite.servlets;
 
 
 import com.example.adminusersite.dao.UserDao;
@@ -31,8 +31,8 @@ import java.util.stream.Collectors;
  * </ul>
  */
 
-@WebServlet(name = "login", value = "/login")
-public class Login extends HttpServlet {
+@WebServlet(name = "sign-in", value = "/sign-in")
+public class SignIn extends HttpServlet {
 
     @Override
     @SneakyThrows
@@ -66,7 +66,6 @@ public class Login extends HttpServlet {
                 writer.println("</br><a href=\"create.jsp\">create</a>");
                 writer.println("</br><a href=\"delete.jsp\">delete</a>");
                 writer.println("</br><a href=\"update.jsp\">update</a></br>");
-
             }
         }
 
