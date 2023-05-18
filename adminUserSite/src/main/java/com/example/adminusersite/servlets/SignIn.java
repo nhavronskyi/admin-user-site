@@ -10,8 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-import java.util.stream.Collectors;
-
 /**
  * <h1>проста адмінка, яка буде мати наступний функціонал</h1>
  * <ol>
@@ -40,41 +38,20 @@ public class SignIn extends HttpServlet {
         String uname = req.getParameter("login");
         String upass = req.getParameter("password");
 
-        resp.setContentType("text/html");
-        var writer = resp.getWriter();
-
-        writer.println("<html>\n" +
-                "<head>\n" +
-                "    <title>admin user site</title>\n" +
-                "</head>\n" +
-                "<body>");
-
         UserDao userDao = new UserDaoImpl();
         User user = userDao.findUser(uname, upass);
 
         if (user.getU_name() == null) {
-            writer.println(uname + " doesnt exist");
+            req.setAttribute("message", uname + " doesnt exist");
+            req.getRequestDispatcher("errorPage.jsp").forward(req, resp);
         } else {
             if (user.getU_type().equals("user")) {
-                writer.println(user);
+                req.setAttribute("user", user);
+                req.getRequestDispatcher("userPage.jsp").forward(req, resp);
             } else if (user.getU_type().equals("admin")) {
-                writer.println(userDao.findAll().stream()
-                        .map(x -> x.getId() + "     " + x.getU_name() + "       " + x.getU_type())
-                        .collect(Collectors.joining("</br>")));
-
-                writer.println("</br>---------------------------------");
-                writer.println("</br><a href=\"create.jsp\">create</a>");
-                writer.println("</br><a href=\"delete.jsp\">delete</a>");
-                writer.println("</br><a href=\"update.jsp\">update</a></br>");
+                req.setAttribute("dao", userDao);
+                req.getRequestDispatcher("adminPage.jsp").forward(req, resp);
             }
         }
-
-        writer.println("</br><a href=\"index.jsp\">logout</a>");
-
-        writer.println("</body>\n" +
-                "</html>");
-        writer.flush();
-
-
     }
 }

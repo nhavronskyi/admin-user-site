@@ -19,14 +19,13 @@ public class CreateUserServlet extends HttpServlet {
         UserDao userDao = new UserDaoImpl();
 
         User user = userDao.findUser(uname, upass);
-        var writer = resp.getWriter();
 
         if (uname.equals(user.getU_name())) {
-            writer.println("this user already exist");
+            req.setAttribute("message", "this user already exist");
         } else {
             userDao.createUser(uname, upass);
-            writer.println("account is created");
+            req.setAttribute("message", "user is created");
         }
-        writer.flush();
+        req.getRequestDispatcher("errorPage.jsp").forward(req, resp);
     }
 }

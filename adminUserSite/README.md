@@ -1,15 +1,16 @@
 # **adminUserSite**
 
 ## TECHNOLOGIES
+
 1. servlets
 2. tomcat 10
 3. jdbc
 4. postgresql
 
-
 ## QUICKSTART
 
 ### STEP 1
+
 You need to create database postgres with table users:
 
 **db name: postgres**
@@ -27,7 +28,9 @@ create table if not exists users
 ```
 
 ### STEP 2
+
 Configure your tomcat and start server
 
 ### STEP 3
+
 You can reach this site with this url: http://localhost:8080/adminUserSite/
