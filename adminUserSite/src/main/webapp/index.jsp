@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Autorisation</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>

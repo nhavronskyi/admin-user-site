@@ -16,7 +16,7 @@
 
     <filter>
         <filter-name>filter</filter-name>
-        <filter-class>com.example.adminusersite.filter.MyFilter</filter-class>
+        <filter-class>com.example.adminusersite.filter.AuthenticationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>filter</filter-name>

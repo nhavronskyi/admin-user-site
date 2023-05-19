@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Update User</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -17,7 +17,7 @@
                 new password: <label for="password"></label><input type="password" id="password" name="password"><br>
                 <input type="hidden" name="id" value="<%= u %>">
                 <br>
-                <button class="btn mt-3" type="submit" >update</button>
+                <button class="btn mt-3" type="submit">update</button>
             </form>
         </div>
     </div>
