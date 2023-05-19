@@ -8,14 +8,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-@WebServlet("/delete")
-public class DeleteUserServlet extends HttpServlet {
-    @SneakyThrows
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        UserDao userDao = new UserDaoImpl();
-        userDao.deleteUser(Integer.parseInt(req.getParameter("id")));
 
+@WebServlet("/create")
+public class CreateUserByAdminServlet extends HttpServlet {
+    @Override
+    @SneakyThrows
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        String uname = req.getParameter("login");
+        String upass = req.getParameter("password");
+        UserDao userDao = new UserDaoImpl();
+
+        userDao.createUser(uname, upass);
         req.getRequestDispatcher("sign-in").forward(req, resp);
     }
 }

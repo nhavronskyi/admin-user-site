@@ -1,5 +1,5 @@
 <%@ page import="com.example.adminusersite.user.User" %>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Title</title>
