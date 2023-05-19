@@ -46,7 +46,7 @@
                         </form>
                     </td>
                     <td>
-                        <form  method="post" action="update">
+                        <form method="post" action="update">
                             <input type="hidden" name="id" value="<%= u.getId() %>">
                             <button class="btn mt-3" type="submit">edit</button>
                         </form>
