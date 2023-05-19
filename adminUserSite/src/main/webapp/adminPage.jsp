@@ -40,15 +40,15 @@
                     <td><%=u.getU_type()%>
                     </td>
                     <td>
-                        <form method="post" action="delete">
+                        <form class="btn mt-3" method="post" action="delete">
                             <input type="hidden" name="id" value="<%= u.getId() %>">
-                            <input type="submit" value="delete">
+                            <button class="btn mt-3" type="submit">delete</button>
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="update">
+                        <form  method="post" action="update">
                             <input type="hidden" name="id" value="<%= u.getId() %>">
-                            <input type="submit" value="edit">
+                            <button class="btn mt-3" type="submit">edit</button>
                         </form>
                     </td>
                 </tr>

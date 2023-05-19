@@ -16,7 +16,8 @@
                 new login: <label for="login"></label><input type="text" id="login" name="login"><br>
                 new password: <label for="password"></label><input type="password" id="password" name="password"><br>
                 <input type="hidden" name="id" value="<%= u %>">
-                <input type="submit" value="update">
+                <br>
+                <button class="btn mt-3" type="submit" >update</button>
             </form>
         </div>
     </div>
