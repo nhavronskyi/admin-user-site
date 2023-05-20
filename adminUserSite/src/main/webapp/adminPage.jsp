@@ -1,16 +1,12 @@
-<%@ page import="com.example.adminusersite.dao.UserDao" %>
-<%@ page import="com.example.adminusersite.user.User" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Admin page</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<%
-    UserDao userDao = (UserDao) request.getAttribute("dao");
-    var users = userDao.findAll();
-%>
+<c:set var="userDao" value="${requestScope.dao}"/>
 
 <div class="wrapper">
     <div class="text-center mt-4 name">
@@ -26,35 +22,31 @@
                     <td>type</td>
                     <td>actions</td>
                 </tr>
-                <%
-                    for (User u : users) {
-                %>
 
-                <tr>
-                    <td><%=u.getId()%>
-                    </td>
-                    <td><%=u.getU_name() %>
-                    </td>
-                    <td><%=u.getU_pass()%>
-                    </td>
-                    <td><%=u.getU_type()%>
-                    </td>
-                    <td>
-                        <form class="btn mt-3" method="post" action="delete">
-                            <input type="hidden" name="id" value="<%= u.getId() %>">
-                            <button class="btn mt-3" type="submit">delete</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form method="post" action="update">
-                            <input type="hidden" name="id" value="<%= u.getId() %>">
-                            <button class="btn mt-3" type="submit">edit</button>
-                        </form>
-                    </td>
-                </tr>
-                <%
-                    }
-                %>
+                <c:forEach var="users" items="${userDao.findAll()}">
+                    <tr>
+                        <td>${users.getId()}
+                        </td>
+                        <td>${users.getU_name()}
+                        </td>
+                        <td>${users.getU_pass()}
+                        </td>
+                        <td>${users.getU_type()}
+                        </td>
+                        <td>
+                            <form class="btn mt-3" method="post" action="delete">
+                                <input type="hidden" name="id" value="${users.getId()}">
+                                <button class="btn mt-3" type="submit">delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="update">
+                                <input type="hidden" name="id" value="${users.getId()}">
+                                <button class="btn mt-3" type="submit">edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
             </table>
             <br>
             <a href="create.jsp">create</a>
